@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ecommerce product page</title>
+</head>
+<body>
+    <header>
+        <div class="menu-and-logo">
+           <a href="#"><img src="images/icon-menu.svg" class="menu"></a>
+           <a href="#"><img src="images/logo.svg" class="logo"></a>
+        </div>
+        <div class="menu-box">
+            <div class="menu-items closed">
+                <img src="images/icon-close.svg" class="close-btn">
+                <ul>
+                    <li>Collections</li>
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+        </div>
+       
+        </div>
+        <div class="profile-and-checkout">
+            <a href="#"><img src="images/icon-cart.svg" class="cart"></a>
+            <a href="#"><img src="images/image-avatar.png" class="profile"></a>
+        </div>
+    </header>
+
+    <section class="main-body">
+        <div class="view-cart hide">
+            <h4>cart</h4>
+            <div class="cart-content">
+                <p>your cart is empty</p>
+            </div>
+            <div class="checkout-content"></div>
+        </div>
+        <div class="image-slider">
+            <img src="images/image-product-1.jpg" class="current-image">
+
+            <div class="slider-btns">
+                <button class="btn-prev"><img src="images/icon-previous.svg"></button>
+                <button class="btn-next"><img src="images/icon-next.svg"></button>
+            </div>
+
+            <div class="image-options">
+                <img class= "active" src="images/image-product-1-thumbnail.jpg">
+                <img src="images/image-product-2-thumbnail.jpg">
+                <img src="images/image-product-3-thumbnail.jpg">
+                <img src="images/image-product-4-thumbnail.jpg">
+            </div>
+        </div>
+
+        <div class="product-info-and-purchase">
+            <div class="product-info">
+                <h4>sneaker company</h4>
+                <h2>fall limited edition sneakers</h2>
+                <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+                <div class="price">
+                    <div class="new-and-discount">
+                        <h2>$125.00</h2>
+                    <h3>50%</h3>
+                    </div>
+                    <div class="old-price">
+                        <h3>$250.00</h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="purchase">
+                <div class="number-of-items">
+                    <a class="minus"><img src="images/icon-minus.svg"></a>
+                    <p> 0 </p>
+                    <a class="plus"><img src="images/icon-plus.svg"></a>
+                </div>
+                <a class="add-to-cart">
+                    <img src="images/icon-cart.svg">
+                    <p>add to cart</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="image-view-pop-up hide-pop-up">
+            <img src="images/icon-close.svg" class="pop-up-close">
+
+            <div class="pop-up-content">
+                <img src="images/image-product-1.jpg" class="current-image-pop-up">
+    
+                <div class="slider-btns-pop-up">
+                    <button class="btn-prev-pop-up"><img src="images/icon-previous.svg"></button>
+                    <button class="btn-next-pop-up"><img src="images/icon-next.svg"></button>
+                </div>
+    
+                <div class="image-options-pop-up">
+                    <img class= "active-pop-up" src="images/image-product-1-thumbnail.jpg">
+                    <img src="images/image-product-2-thumbnail.jpg">
+                    <img src="images/image-product-3-thumbnail.jpg">
+                    <img src="images/image-product-4-thumbnail.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!--- -->
+
+
+    <script src="script.js"></script>
+</body>
+</html>
