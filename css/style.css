@@ -320,6 +320,10 @@ header .profile-and-checkout .profile {
   font: 1.05rem;
 }
 
+.main-body .product-info-and-purchase .purchase {
+  margin-bottom: 60px;
+}
+
 .main-body .product-info-and-purchase .purchase .number-of-items {
   display: flex;
   flex-direction: row;

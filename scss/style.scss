@@ -227,6 +227,7 @@ header {
            }
        }
        .purchase {
+           margin-bottom: 60px;
            .number-of-items {
             @include flex(row, space-between,center);
             background-color: map-get($neutral-colors, "Light grayish blue" );
