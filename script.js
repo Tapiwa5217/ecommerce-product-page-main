@@ -73,7 +73,7 @@ let checkout = false;
 
 function addNewItem() {
 
-    if (cartContent.innerText == 'your cart is empty') {
+    if (cartContent.innerHTML == '<p>your cart is empty</p>') {
         cartContent.innerHTML = '';
     }
     
@@ -121,7 +121,7 @@ function addNewItem() {
         toRemove.parentElement.removeChild(toRemove);
 
 
-        if(cartContent.innerText == '') {
+        if(cartContent.innerHTML == '') {
             cartContent.innerHTML = '<p>your cart is empty</p>';
 
             checkoutContent.innerHTML = '';
