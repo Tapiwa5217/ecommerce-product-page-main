@@ -131,6 +131,20 @@ header {
                     width: 15px;
                     border-radius: none;
                     margin: 0;
+
+                    svg {
+                        use {
+                            fill:rgba(0, 0, 0, 0.75);
+                        }
+                    }
+                    
+                }
+
+
+                .bin:hover {
+                    transform: scale(1.2);
+                    transition: .2s ease-in;
+                    fill: aqua;
                 }
             }
 
@@ -263,6 +277,19 @@ header {
 
     .image-view-pop-up {
         display: none;
+
+        .pop-up-content {
+            .slider-btns-pop-up {
+                button {
+                    cursor: pointer;
+                }
+            }
+            .image-options-pop-up {
+                img {
+                    cursor: pointer;
+                }
+            }    
+        }
     }
 }
 

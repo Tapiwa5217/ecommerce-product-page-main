@@ -2,6 +2,7 @@ let currentImg = document.querySelector('.current-image');
 let nextBtn = document.querySelector('.btn-next');
 let prevBtn = document.querySelector('.btn-prev');
 
+let basePrice = document.querySelector('.basePrice');
 let itemStatus = document.querySelector('.number-of-items p');
 let minus = document.querySelector('.minus');
 let plus = document.querySelector('.plus');
@@ -21,6 +22,8 @@ let menuBtn = document.querySelector('.menu');
 let closeBtn = document.querySelector('.close-btn');
 let menuItems = document.querySelector('.menu-items');
 let menuBox = document.querySelector('.menu-box');
+
+basePrice.innerText = singlePrice;
 
 prevBtn.addEventListener('click', function() {
     
@@ -73,61 +76,67 @@ let checkout = false;
 
 function addNewItem() {
 
-    if (cartContent.innerHTML == '<p>your cart is empty</p>') {
-        cartContent.innerHTML = '';
+    if (itemNum == 0) {
+        //do nothing
     }
-    
-    let newPurchase = document.createElement('div');
-    let cartImg = document.createElement('img');
-    let purchaseTitle = document.createElement('h3');
-    let purchasePrice = document.createElement('p');
-    let binBtn = document.createElement('a');
-    let bin = document.createElement('img');
-    let titleAndprice = document.createElement('div');
-
-    cartContent.appendChild(newPurchase);
-    newPurchase.appendChild(cartImg);
-    titleAndprice.appendChild(purchaseTitle);
-    titleAndprice.appendChild(purchasePrice);
-    newPurchase.appendChild(titleAndprice);
-    newPurchase.appendChild(binBtn);
-    binBtn.appendChild(bin);
-
-    newPurchase.classList.add('new-purchase');
-    titleAndprice.classList.add('title-and-price');
-    cartImg.src = currentImg.src;
-    bin.src = 'images/icon-delete.svg';
-    bin.classList.add('bin');
-    purchaseTitle.innerText = purchaseTitleContent.innerText;
-    //purchasePrice.innerText = '$' + singlePrice + ' x ' + itemNum + ' $' +  finalPrice;
-    purchasePrice.innerHTML = '$' + singlePrice + ' x ' + itemNum + '<b> $' +  finalPrice + '</b>';
-
-    if (!checkout) {
-
-        checkout = true;
-        let checkOutBtn = document.createElement('button');
-        let checkoutText = document.createTextNode('Checkout');
-
-        checkOutBtn.appendChild(checkoutText);
-        checkOutBtn.classList.add('check-out-btn');
-        checkoutContent.appendChild(checkOutBtn);
-    }
-
-
-    //remove added item from cart
-    binBtn.addEventListener('click', function() {
-        let toRemove =event.target.parentElement.parentElement;
-
-        toRemove.parentElement.removeChild(toRemove);
-
-
-        if(cartContent.innerHTML == '') {
-            cartContent.innerHTML = '<p>your cart is empty</p>';
-
-            checkoutContent.innerHTML = '';
-            checkout = false;
+    else {
+        if (cartContent.innerHTML == '<p>your cart is empty</p>') {
+            cartContent.innerHTML = '';
         }
-    })
+        
+        let newPurchase = document.createElement('div');
+        let cartImg = document.createElement('img');
+        let purchaseTitle = document.createElement('h3');
+        let purchasePrice = document.createElement('p');
+        let binBtn = document.createElement('a');
+        let bin = document.createElement('img');
+        let titleAndprice = document.createElement('div');
+    
+        cartContent.appendChild(newPurchase);
+        newPurchase.appendChild(cartImg);
+        titleAndprice.appendChild(purchaseTitle);
+        titleAndprice.appendChild(purchasePrice);
+        newPurchase.appendChild(titleAndprice);
+        newPurchase.appendChild(binBtn);
+        binBtn.appendChild(bin);
+    
+        newPurchase.classList.add('new-purchase');
+        titleAndprice.classList.add('title-and-price');
+        cartImg.src = currentImg.src;
+        bin.src = 'images/icon-delete.svg';
+        bin.classList.add('bin');
+        purchaseTitle.innerText = purchaseTitleContent.innerText;
+        //purchasePrice.innerText = '$' + singlePrice + ' x ' + itemNum + ' $' +  finalPrice;
+        purchasePrice.innerHTML = '$' + singlePrice + ' x ' + itemNum + '<b> $' +  finalPrice + '</b>';
+
+    
+        if (!checkout) {
+    
+            checkout = true;
+            let checkOutBtn = document.createElement('button');
+            let checkoutText = document.createTextNode('Checkout');
+    
+            checkOutBtn.appendChild(checkoutText);
+            checkOutBtn.classList.add('check-out-btn');
+            checkoutContent.appendChild(checkOutBtn);
+        }
+    
+    
+        //remove added item from cart
+        binBtn.addEventListener('click', function() {
+            let toRemove =event.target.parentElement.parentElement;
+    
+            toRemove.parentElement.removeChild(toRemove);
+    
+    
+            if(cartContent.innerHTML == '') {
+                cartContent.innerHTML = '<p>your cart is empty</p>';
+    
+                checkoutContent.innerHTML = '';
+                checkout = false;
+            }
+        })
+    }
 }
 
 addToCart.addEventListener('click', addNewItem);
@@ -147,7 +156,7 @@ closeBtn.addEventListener('click', function() {
     menuBox.style.pointerEvents = 'none';
     menuBox.style.opacity = '0';
         },700
-    )
+    ) 
 });
 
 let images = ['images/image-product-1.jpg','images/image-product-2.jpg','images/image-product-3.jpg','images/image-product-4.jpg'];
@@ -192,13 +201,12 @@ popUpClose.addEventListener('click', function() {
 popUpBtnPrev.addEventListener('click', function() {
      
     if(currentNumPop === 1) {
-        currentNumPop = 1;
+      //do nothing  currentNumPop = 1;
     }
     else {
         currentNumPop--;
-        for(let k = 0; k < imgPopUpOptions.length; k++) {
-            imgPopUpOptions[k].classList.remove('active-pop-up');
-        }
+        
+        imgPopUpOptions[popUpActive].classList.remove('active-pop-up');
         popUpActive--;
         imgPopUpOptions[popUpActive].classList.add('active-pop-up');
     }
@@ -212,14 +220,25 @@ popUpBtnnext.addEventListener('click', function() {
     }
     else {
         currentNumPop++;
-        for(let k = 0; k < imgPopUpOptions.length; k++) {
-            imgPopUpOptions[k].classList.remove('active-pop-up');
-        }
+    
+        imgPopUpOptions[popUpActive].classList.remove('active-pop-up');
         popUpActive++;
         imgPopUpOptions[popUpActive].classList.add('active-pop-up');
     }
     currentImgPopUp.src = 'images/image-product-' + currentNumPop + '.jpg';
 });
+
+for(let k=0; k < imgPopUpOptions.length; k++) {
+    imgPopUpOptions[k].addEventListener ('click', function() {
+        currentImgPopUp.src = 'images/image-product-' + (k+1) + '.jpg';
+        imgPopUpOptions[popUpActive].classList.remove('active-pop-up');
+        imgPopUpOptions[k].classList.add('active-pop-up');
+
+        currentNumPop = k+1;
+        popUpActive = k;
+        
+    })
+}
 
 
 
